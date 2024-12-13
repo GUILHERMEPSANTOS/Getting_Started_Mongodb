@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyFlix.Domain", "src\MyFlix
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyFlix.Infrastructure", "src\MyFlix.Infrastructure\MyFlix.Infrastructure.csproj", "{EA97AF85-6ED4-4FEC-8DD0-471E38AB466D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyFlix.Api", "src\MyFlix.Api\MyFlix.Api.csproj", "{4A95BD12-35C2-4538-BA53-05B5C72379D3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -26,9 +28,14 @@ Global
 		{EA97AF85-6ED4-4FEC-8DD0-471E38AB466D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EA97AF85-6ED4-4FEC-8DD0-471E38AB466D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EA97AF85-6ED4-4FEC-8DD0-471E38AB466D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4A95BD12-35C2-4538-BA53-05B5C72379D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A95BD12-35C2-4538-BA53-05B5C72379D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A95BD12-35C2-4538-BA53-05B5C72379D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A95BD12-35C2-4538-BA53-05B5C72379D3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{2AD8D184-E8FE-448C-A6BC-B3389FAE132C} = {3DA574F9-7CC8-4591-9520-DEDB8899D9C6}
 		{EA97AF85-6ED4-4FEC-8DD0-471E38AB466D} = {3DA574F9-7CC8-4591-9520-DEDB8899D9C6}
+		{4A95BD12-35C2-4538-BA53-05B5C72379D3} = {3DA574F9-7CC8-4591-9520-DEDB8899D9C6}
 	EndGlobalSection
 EndGlobal

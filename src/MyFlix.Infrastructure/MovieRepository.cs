@@ -15,15 +15,15 @@ public class MovieRepository : IMovieRepository
         _collection = database.GetCollection<Movie>(DocumentDbSettings.Collection);
     }
 
-    public void Add(Movie movie)
+    public async Task Add(Movie movie)
     {
-        _collection.InsertOne(movie);
+        await _collection.InsertOneAsync(movie);
     }
 
     public async Task<Movie> GetMovieByIdAsync(Guid id)
     {
         FilterDefinition<Movie> filter = Builders<Movie>.Filter.Eq(movie => movie.Id, id);
-        
+
         return await _collection.Find(filter).SingleAsync();
     }
 }
