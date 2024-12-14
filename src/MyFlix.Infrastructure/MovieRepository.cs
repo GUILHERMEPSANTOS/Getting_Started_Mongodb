@@ -22,8 +22,7 @@ public class MovieRepository : IMovieRepository
 
     public async Task<Movie> GetMovieByIdAsync(Guid id)
     {
-        FilterDefinition<Movie> filter = Builders<Movie>.Filter.Eq(movie => movie.Id, id);
-
+        var filter = Builders<Movie>.Filter.Eq(movie => movie.Id, id);
         return await _collection.Find(filter).SingleAsync();
     }
 }

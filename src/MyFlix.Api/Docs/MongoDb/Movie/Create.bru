@@ -4,8 +4,18 @@ meta {
   seq: 1
 }
 
-get {
-  url: https://localhost:44330/
-  body: none
+post {
+  url: http://localhost:29253/movies
+  body: json
   auth: none
+}
+
+body:json {
+  {
+    "Name": "Pereira",
+    "ReleaseDate": "2010-07-16",
+    "Available": true,
+    "Director": "Christopher Nolan"
+  }
+  
 }
