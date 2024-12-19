@@ -17,4 +17,9 @@ public class MovieService(IMovieRepository movieRepository) : IMovieService
     {
         return movieRepository.GetMovieByIdAsync(id);
     }
+
+    public async Task<IEnumerable<Movie>> GetMoviesWithReleaseDateAfter(DateTime date)
+    {
+        return await movieRepository.GetMoviesWithReleaseDateAfter(date);
+    }
 }

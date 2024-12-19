@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using MyFlix.Api.Contracts;
 using MyFlix.Api.Services.Interfaces;
+using Myflix.Domain;
 
 namespace MyFlix.Api.Controllers;
 
@@ -28,5 +29,12 @@ public class MovieController : ControllerBase
     {
         var movie = await _movieService.GetMovieByIdAsync(id_movie);
         return Ok(movie);
+    }
+
+    [HttpPost("release-date/after/{releaseDate}")]
+    public async Task<IActionResult> GetMoviesWithReleaseDateAfter(DateTime releaseDate)
+    {
+        var movies = await _movieService.GetMoviesWithReleaseDateAfter(releaseDate);
+        return Ok(movies);
     }
 }

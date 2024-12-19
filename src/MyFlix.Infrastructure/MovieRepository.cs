@@ -25,4 +25,19 @@ public class MovieRepository : IMovieRepository
         var filter = Builders<Movie>.Filter.Eq(movie => movie.Id, id);
         return await _collection.Find(filter).SingleAsync();
     }
+
+    public async Task<IEnumerable<Movie>> GetMoviesWithReleaseDateAfter(DateTime date)
+    {
+        var filter = Builders<Movie>.Filter.Gt(movie => movie.ReleaseDate, date);
+
+        var movies = await _collection.FindAsync(filter);
+
+        return movies.ToList();
+    }
+    //public async Task<IEnumerable<Movie>> UpdateMovie(Movie movie)
+    //{
+    //    var filter = Builders<Movie>.Filter.Eq(movie => movie.Id, movie.Id);
+    //    
+    //    _collection.UpdateOne(filter, movie);
+    //}
 }
