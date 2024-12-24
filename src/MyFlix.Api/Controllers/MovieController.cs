@@ -37,4 +37,11 @@ public class MovieController : ControllerBase
         var movies = await _movieService.GetMoviesWithReleaseDateAfter(releaseDate);
         return Ok(movies);
     }
+
+    [HttpPut]
+    public async Task<IActionResult> UpdateMovie(UpdateMovieRequest movie)
+    {
+        await _movieService.UpdateMovie(movie);
+        return Ok();
+    }
 }

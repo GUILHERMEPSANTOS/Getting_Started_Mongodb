@@ -1,0 +1,22 @@
+meta {
+  name: UpdateMovie
+  type: http
+  seq: 4
+}
+
+put {
+  url: http://localhost:29253/movies
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "Id": "708ffcc5-f9f0-4ab1-bcc6-7bd3d7774bca",
+    "Name": "Pereirao Da Casa",
+    "ReleaseDate": "2017-07-16",
+    "Available": false,
+    "Director": "Homem"
+  }
+  
+}

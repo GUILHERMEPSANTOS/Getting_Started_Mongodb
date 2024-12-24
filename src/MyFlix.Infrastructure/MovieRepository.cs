@@ -23,7 +23,7 @@ public class MovieRepository : IMovieRepository
     public async Task<Movie> GetMovieByIdAsync(Guid id)
     {
         var filter = Builders<Movie>.Filter.Eq(movie => movie.Id, id);
-        return await _collection.Find(filter).SingleAsync();
+        return await _collection.Find(filter).SingleOrDefaultAsync();
     }
 
     public async Task<IEnumerable<Movie>> GetMoviesWithReleaseDateAfter(DateTime date)
@@ -34,10 +34,14 @@ public class MovieRepository : IMovieRepository
 
         return movies.ToList();
     }
-    //public async Task<IEnumerable<Movie>> UpdateMovie(Movie movie)
-    //{
-    //    var filter = Builders<Movie>.Filter.Eq(movie => movie.Id, movie.Id);
-    //    
-    //    _collection.UpdateOne(filter, movie);
-    //}
+
+    public async Task UpdateMovie(Guid id, Movie movie)
+    {
+        await _collection
+            .UpdateOneAsync(m => m.Id == id,
+                Builders<Movie>.Update
+                    .Set(nameof(Movie.Name), movie.Name)
+                    .Set(nameof(Movie.ReleaseDate), movie.ReleaseDate)
+                    .Set(nameof(Movie.Director), movie.Director));
+    }
 }

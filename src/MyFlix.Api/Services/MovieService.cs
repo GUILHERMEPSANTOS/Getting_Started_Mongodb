@@ -22,4 +22,10 @@ public class MovieService(IMovieRepository movieRepository) : IMovieService
     {
         return await movieRepository.GetMoviesWithReleaseDateAfter(date);
     }
+
+    public async Task UpdateMovie(UpdateMovieRequest request)
+    {
+        var movie = Movie.Create(request.Name, request.ReleaseDate, request.Available, request.Director);
+        await movieRepository.UpdateMovie(request.Id, movie);
+    }
 }
