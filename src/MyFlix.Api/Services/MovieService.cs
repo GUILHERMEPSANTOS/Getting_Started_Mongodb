@@ -28,4 +28,9 @@ public class MovieService(IMovieRepository movieRepository) : IMovieService
         var movie = Movie.Create(request.Name, request.ReleaseDate, request.Available, request.Director);
         await movieRepository.UpdateMovie(request.Id, movie);
     }
+
+    public async Task DeleteMovie(Guid id)
+    {
+        await movieRepository.DeleteMovie(id);
+    }
 }

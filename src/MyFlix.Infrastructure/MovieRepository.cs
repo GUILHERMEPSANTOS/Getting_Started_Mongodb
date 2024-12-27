@@ -28,9 +28,7 @@ public class MovieRepository : IMovieRepository
 
     public async Task<IEnumerable<Movie>> GetMoviesWithReleaseDateAfter(DateTime date)
     {
-        var filter = Builders<Movie>.Filter.Gt(movie => movie.ReleaseDate, date);
-
-        var movies = await _collection.FindAsync(filter);
+        var movies = await _collection.FindAsync(movie => movie.ReleaseDate > date);
 
         return movies.ToList();
     }
@@ -43,5 +41,10 @@ public class MovieRepository : IMovieRepository
                     .Set(nameof(Movie.Name), movie.Name)
                     .Set(nameof(Movie.ReleaseDate), movie.ReleaseDate)
                     .Set(nameof(Movie.Director), movie.Director));
+    }
+
+    public async Task DeleteMovie(Guid id)
+    {
+        await _collection.DeleteOneAsync(movie => movie.Id == id);
     }
 }
